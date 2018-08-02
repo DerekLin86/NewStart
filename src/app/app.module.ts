@@ -10,7 +10,6 @@ import { AppRoutingModule }     from './app-routing.module';
 
 import { AppComponent }         from './app.component';
 import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
-import { HeroesComponent }      from './heroes/heroes.component';
 import { HeroService }          from './hero.service';
 import { MessageService }       from './message.service';
 import { MessagesComponent }    from './messages/messages.component';
@@ -31,7 +30,6 @@ import { MessagesComponent }    from './messages/messages.component';
   ],
   declarations: [
     AppComponent,
-    HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
   ],
