@@ -7,8 +7,8 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
 import { AppRoutingModule }     from './app-routing.module';
-
 import { AppComponent }         from './app.component';
+import { DialogService }        from './dialog.service';
 import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
 import { HeroService }          from './hero.service';
 import { MessageService }       from './message.service';
@@ -33,7 +33,7 @@ import { MessagesComponent }    from './messages/messages.component';
     HeroDetailComponent,
     MessagesComponent,
   ],
-  providers: [ HeroService, MessageService ],
+  providers: [ HeroService, MessageService, DialogService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
