@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -16,6 +17,7 @@ const httpOptions = {
 export class HeroService {
 
   private heroesUrl = 'api/heroes';  // URL to web api
+  heroQuantity = new BehaviorSubject<number>(0);
 
   constructor(
     private http: HttpClient,
@@ -28,6 +30,14 @@ export class HeroService {
         tap(heroes => this.log(`fetched heroes`)),
         catchError(this.handleError('getHeroes', []))
       );
+  }
+
+  updateHerosQutantity(value: number): void {
+    this.heroQuantity.next(value);
+  }
+
+  getHeroesQutantity(): Observable<number> {
+    return this.heroQuantity;
   }
 
   /** GET hero by id. Return `undefined` when id not found */

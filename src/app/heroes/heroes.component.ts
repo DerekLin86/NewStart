@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Observable } from 'rxjs/Observable';
+
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 
@@ -10,8 +12,11 @@ import { HeroService } from '../hero.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
+  heroQuantity$: Observable<number>;
 
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService) {
+    this.heroQuantity$ = heroService.getHeroesQutantity();
+  }
 
   ngOnInit() {
     this.getHeroes();
@@ -28,12 +33,14 @@ export class HeroesComponent implements OnInit {
     this.heroService.addHero({ name } as Hero)
       .subscribe(hero => {
         this.heroes.push(hero);
+        this.heroService.updateHerosQutantity(this.heroes.length);
       });
   }
 
   delete(hero: Hero): void {
     this.heroes = this.heroes.filter(h => h !== hero);
     this.heroService.deleteHero(hero).subscribe();
+    this.heroService.updateHerosQutantity(this.heroes.length);
   }
 
 }
