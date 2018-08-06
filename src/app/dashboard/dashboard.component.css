@@ -19,6 +19,10 @@ h3 {
   text-align: center; margin-bottom: 0;
 }
 h4 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 36px;
+  margin: 0px;
   position: relative;
 }
 .grid {
@@ -26,6 +30,7 @@ h4 {
   margin: 0;
 }
 .col-1-4 {
+  height: 96px;
   width: 25%;
 }
 .module {
@@ -52,6 +57,17 @@ h4 {
   .module {
     font-size: 10px;
     max-height: 75px; }
+}
+@media (max-width: 992px) and (min-width: 769px) {
+  .grid {
+    flex-wrap: wrap;
+    height: 212px; }
+  .col-1-4 {
+    flex-grow: 1;
+    min-width: 332px;
+    padding-left: 20px; }
+  .col-1-4 .module {
+    height: 100%; }
 }
 @media (min-width: 992px) {
   .grid {
