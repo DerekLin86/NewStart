@@ -8,11 +8,15 @@ export class MessageService {
     this.messages.push(message);
   }
 
-  clear() {
-    if (this.messages.length <= 5) {
-      this.messages = [];
+  clear(isAdvanced: boolean) {
+    if (isAdvanced === true) {
+      if (this.messages.length <= 5) {
+        this.messages = [];
+      } else {
+        this.messages.splice(0, 5);
+      }
     } else {
-      this.messages.splice(0, 5);
+      this.messages = [];
     }
   }
 }
