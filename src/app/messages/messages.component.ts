@@ -18,7 +18,7 @@ export class MessagesComponent implements OnInit {
     this.dialogService.confirm('Do you really want to clear?').then(
       result => {
         if (result) {
-          this.messageService.clear();
+          this.messageService.clear(false);
         }
     });
   }
