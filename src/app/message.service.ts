@@ -9,10 +9,6 @@ export class MessageService {
   }
 
   clear() {
-    if (this.messages.length <= 5) {
-      this.messages = [];
-    } else {
-      this.messages.splice(0, 5);
-    }
+    this.messages = [];
   }
 }
