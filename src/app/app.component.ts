@@ -27,11 +27,11 @@ export class AppComponent {
     this.heroQuantity$ = heroService.getHeroesQutantity();
   }
 
-  confirm_clear() {
+  confirm_clear(clearItemNum: number) {
     this.dialogService.confirm('Do you really want to clear?').then(
       result => {
         if (result) {
-          this.messageService.clear(true);
+          this.messageService.clear(clearItemNum);
         }
     });
   }
