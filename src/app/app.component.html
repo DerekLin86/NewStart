@@ -1,7 +1,11 @@
 <h1>
     {{title}}
     <button class="clear"
-        (click)="confirm_clear()">clear top 5 messages</button>
+        (click)="confirm_clear(5)">clear top 5 messages</button>
+    <button class="clear"
+        (click)="confirm_clear(3)">clear top 3 messages</button>
+    <button class="clear"
+        (click)="confirm_clear(7)">clear top 7 messages</button>
 </h1>
 <nav>
   <a routerLink="/dashboard">Dashboard</a>
